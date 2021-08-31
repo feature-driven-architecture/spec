@@ -1,6 +1,6 @@
 # Feature Driven Architecture
 
-Feature Driven Architecture (FDA) is a set of principles that helps organize code and assets for visual interface in a way that lets you keep a constant velocity with a growing amount of Features.
+Feature Driven Architecture (FDA) is a structural framework that helps organize the codebase for visual interfaces in a way that lets you keep a constant velocity while the amount of Features is growing.
 
 ## Rationale
 
@@ -24,9 +24,12 @@ FDA is the missing piece that builds **on top** of existing components and data-
 
 ## Non-goals
 
-**Implementation details** - it is language and framework agnostic. It leaves plenty of space to accommodate particular product needs and design decisions.
+**Language and Franework** - it is language and framework agnostic. It leaves plenty of space to accommodate particular product needs and design decisions.
 
 **Data flow model** - it is data flow agnostic. Unidirectional, reactive, or actor data model doesn't matter as long as the principles are not broken.
+
+**Data fetching** - it is network layer agnostic.
+Websockets or HTTP, REST, RPC or GraphQL - doesn't matter as long as the principles are not broken.
 
 ## How
 
@@ -46,7 +49,7 @@ Breaking any principle described in this architecture will lead to specific prob
 
 ## Feature
 
-> A Feature is a self-contained user-facing reusable complex building block.
+> A Feature is an isolated user-facing reusable complex building block(s) that solves a particular problem for a user.
 
 Feature scope generally depends on the product and organizational needs, but a specific Feature should have a clearly defined scope by its maintainers.
 
