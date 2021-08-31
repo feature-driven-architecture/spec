@@ -1,6 +1,6 @@
 # Feature Driven Architecture
 
-Feature Driven Architecture (FDA) is a structural framework that helps organize the codebase for visual interfaces in a way that lets you keep a constant velocity while the amount of Features is growing.
+Feature Driven Architecture (FDA) is a structural framework that helps organize the codebase for visual interfaces in a way that helps you keep a constant velocity while the amount of Features is growing.
 
 ## Rationale
 
