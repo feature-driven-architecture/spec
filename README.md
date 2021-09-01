@@ -109,4 +109,4 @@ A Screen implements Core Principles.
 
 1. A Screen can not know about the existence of any other Screen.
 1. A Screen must be cohesive.
-1. A Cluster has to be disposable.
+1. A Screen has to be disposable.
