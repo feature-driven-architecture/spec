@@ -8,7 +8,9 @@ We have various component models that let us compose the UI. We have multiple da
 
 The reason is the lack of agreement on splitting an application to prevent exponential growth in complexity as you add Features.
 
-FDA is the missing piece that builds **on top** of existing components and data-flow models.
+FDA is the missing piece that builds **on top** of existing component and data-flow models.
+
+Instead of organizing code by data and abstraction types, we want to organize the code based on the user-facing features that solve a user problem. This way, we believe it is easier to scale, communicate and navigate the codebase.
 
 ## Goals
 
