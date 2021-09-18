@@ -26,7 +26,7 @@ Instead of organizing code by data and abstraction types, we want to organize th
 
 ## Non-goals
 
-**Language and Franework** - it is language and framework agnostic. It leaves plenty of space to accommodate particular product needs and design decisions.
+**Language and Framework** - it is language and framework agnostic. It leaves plenty of space to accommodate particular product needs and design decisions.
 
 **Data flow model** - it is data flow agnostic. Unidirectional, reactive, or actor data model doesn't matter as long as the principles are not broken.
 
