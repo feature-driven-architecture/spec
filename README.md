@@ -1,12 +1,12 @@
 # Feature Driven Architecture
 
-Feature Driven Architecture (FDA) is a structural framework that helps organize the codebase for visual interfaces in a way that helps you keep a constant velocity while the amount of Features is growing.
+Feature Driven Architecture (FDA) is a structural framework that helps organize the codebase for visual interfaces in a way that lets you keep a constant development velocity while the amount of Features is growing.
 
 ## Rationale
 
 We have various component models that let us compose the UI. We have multiple data flow models that simplify working with the data. And yet, we struggle to build an application that allows many people to work in parallel. We suffer an exponential slow-down when the codebase grows.
 
-The reason is the lack of agreement on splitting an application to prevent exponential growth in complexity as you add Features.
+The reason is the lack of agreement on splitting an application in a way that allows more people to work in parallel and keep the complexity under control.
 
 FDA is the missing piece that builds **on top** of existing component and data-flow models.
 
@@ -20,9 +20,7 @@ Instead of organizing code by data and abstraction types, we want to organize th
 
 **Refactoring** - better understand the scope of a change. Gain much more confidence in changing a Feature by knowing it won't affect other Features. See what Features will be affected when changing a shared abstraction.
 
-**AB Tests** - enable creating and removing experimental Features.
-
-**Integration tests** - make it easier to write an integration test by clearly understanding what is being integrated.
+**Experiments** - enable creating and removing experimental Features.what
 
 ## Non-goals
 
@@ -35,13 +33,13 @@ Websockets or HTTP, REST, RPC or GraphQL - doesn't matter as long as the princip
 
 ## How
 
-Feature Driven Architecture defines three concepts: Feature, Cluster, and Screen. Each concept follows the core principles.
+Feature Driven Architecture defines foundational boundaries: Feature, Cluster, Screen, Shared and Library. Each concept follows the core principles.
 
 A concept of a "Feature" is the foundation of Feature Driven Architecture. Everything else exists to support it.
 
 Breaking any principle described in this architecture will lead to specific problems in your codebase, and the goal here is to define the benefits and trade-offs.
 
-## Core Principles
+## Core principles
 
 1. Decentralization
 1. Co-location
@@ -55,7 +53,7 @@ Breaking any principle described in this architecture will lead to specific prob
 
 Feature scope generally depends on the product and organizational needs, but a specific Feature should have a clearly defined scope by its maintainers.
 
-A Feature implements Core Principles.
+A Feature follows these principles:
 
 1. A Feature can not know about the existence of any other Feature.
 
@@ -81,17 +79,29 @@ A Feature implements Core Principles.
 
    You should be able to compose multiple Features on the same or different screens without modifying a Feature.
 
+## Screen
+
+> A Screen represents the content of the entire Screen.
+
+A Screen can use Clusters and Features to position them on the Screen. A Screen is responsible for the global layout. A Screen knows all Clusters and Features it is using.
+
+A Screen follows these principles:
+
+1. A Screen can not know about the existence of any other Screen.
+1. A Screen must be cohesive.
+1. A Screen has to be disposable.
+
 ## Cluster
 
 > Cluster is a reusable bundle of Features.
 
 A Cluster is useful when you need to bundle several Features and reuse them together on different Screens.
 
-A Cluster can be used to forward data from a Screen, from one Feature to another, and configure Features.
+A Cluster can be used to forward data from one Feature to another, and to configure Features.
 
-A Cluster is needed to avoid duplication of setup code for Features, and if the setup is trivial - you don't need it. _Cluster is an optional concept._
+A Cluster is needed to avoid duplication of setup code for Features. If the setup is trivial - you don't need it. _Cluster is optional._
 
-A Cluster implements Core Principles.
+A Cluster follows these principles:
 
 1. A Cluster can not know about the existence of any other Cluster.
 1. A Cluster can not know about the Screen it's been used on.
@@ -99,14 +109,21 @@ A Cluster implements Core Principles.
 1. A Cluster can have dependencies.
 1. A Cluster has to be disposable.
 
-## Screen
+## Shared
 
-> A Screen represents the content of the entire Screen.
+>Shared code is reusable across Screens, Clusters, and Features and has application-specific knowledge.
 
-A Screen can use Clusters and Features to position them on the Screen. A Screen is responsible for the global layout. A Screen knows all Clusters and Features it is using.
+Shared code follows these principles:
 
-A Screen implements Core Principles.
+1. Shared code has no knowledge of a particular Feature, Cluster, or Screen.
+1. Shared code can use Libraries.
+1. Shared code can use shared code.
 
-1. A Screen can not know about the existence of any other Screen.
-1. A Screen must be cohesive.
-1. A Screen has to be disposable.
+## Library
+
+> Library code is the lowest level abstraction, reusable across Screens, Clusters, Features, and Shared and has __no__ application-specific knowledge.
+
+The Library is often called lib, node_modules, etc.
+
+1. Library code has no knowledge of a particular Feature, Cluster, Screen, or Shared code. In fact, it knows nothing about the application.
+1. Library can use Libraries.
