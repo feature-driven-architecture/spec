@@ -20,7 +20,7 @@ Instead of organizing code by data and abstraction types, we want to organize th
 
 **Refactoring** - better understand the scope of a change. Gain much more confidence in changing a Feature by knowing it won't affect other Features. See what Features will be affected when changing a shared abstraction.
 
-**Experiments** - enable creating and removing experimental Features.what
+**Experiments** - enable creating and removing experimental Features.
 
 ## Non-goals
 
