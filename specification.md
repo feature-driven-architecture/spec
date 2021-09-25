@@ -2,6 +2,12 @@
 
 Feature Driven Architecture (FDA) is a structural framework that helps organize the codebase for visual interfaces in a way that lets you keep a constant development velocity while the amount of Features is growing.
 
+These are three types of boundaries this specification defines:
+
+- __Files System__ - how to name files and directories
+- __Dependencies__ - which boundary can depend on each other
+- __Knowledge__ - which boundary has what type of knowledge
+
 ## Rationale
 
 We have various component models that let us compose the UI. We have multiple data flow models that simplify working with the data. And yet, we struggle to build an application that allows many people to work in parallel. We suffer an exponential slow-down when the codebase grows.
