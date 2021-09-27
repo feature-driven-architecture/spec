@@ -6,7 +6,7 @@ These are three types of boundaries this specification defines:
 
 - __Files System__ - how to name files and directories
 - __Dependencies__ - which boundary can depend on each other
-- __Knowledge__ - which boundary has what type of knowledge
+- __Knowledge Scope__ - which boundary has what type of knowledge
 
 ## Rationale
 
@@ -48,10 +48,24 @@ Breaking any principle described in this architecture will lead to specific prob
 ## Core principles
 
 1. Decentralization
+
+    Avoid a central point of failure as much as possible.
+
 1. Co-location
+
+    Locate dependencies as close as possible to their consumers.
+
 1. Isolation
+
+    Subsystems should know as little as possible. Every piece of knowledge comes at a price of coupling.
+
 1. Disposability
+
+    Optimize for ease of removal. Removing a feature directory in ideal implementation would remove most of the Feature. The remainings should be hard to forget. 
+    
 1. Explicit sharing
+
+    Make sharing code between boundaries super explicit.
 
 ## Feature
 
