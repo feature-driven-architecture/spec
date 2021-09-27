@@ -4,7 +4,7 @@ Feature Driven Architecture (FDA) is a structural framework that helps organize 
 
 These are three types of boundaries this specification defines:
 
-- __Files System__ - how to name files and directories
+- __Files System__ - how to name files and folders
 - __Dependencies__ - which boundary can depend on each other
 - __Knowledge Scope__ - which boundary has what type of knowledge
 
@@ -61,7 +61,7 @@ Breaking any principle described in this architecture will lead to specific prob
 
 1. Disposability
 
-    Optimize for ease of removal. Removing a feature directory in ideal implementation would remove most of the Feature. The remainings should be hard to forget. 
+    Optimize for ease of removal. Removing a feature folder in an ideal implementation would remove most of the Feature. The rest should be easy to track down and remove cleanly.
     
 1. Explicit sharing
 
